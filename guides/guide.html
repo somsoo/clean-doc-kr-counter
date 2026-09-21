@@ -1,1 +1,294 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><title>CleanDoc KR 가이드</title><style>html, body { max-width: 100%; overflow-x: hidden; }</style></head><body style="padding:20px;font-family:sans-serif;"><h1>CleanDoc KR 가이드</h1><p>한글 바이트(EUC-KR vs UTF-8) 계산 원리를 안내합니다. <a href="../index.html">돌아가기</a></p></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공백 포함·제외 글자수 세기와 자기소개서·공공문서 맞춤 글자수 가이드</title>
+  <meta name="description" content="사람인·잡코리아 채용 자기소개서 글자수 제한, 네이버 vs 한글(HWP) 바이트(Byte) 계산법 차이, 띄어쓰기와 원고지 환산 기준을 정밀 분석합니다.">
+  <link rel="canonical" href="https://clean-doc-kr-counter.enjoy-onepage.com/guides/guide.html">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="공백 포함·제외 글자수 세기와 자기소개서·공공문서 맞춤 글자수 가이드">
+  <meta property="og:description" content="사람인·잡코리아 채용 자기소개서 글자수 제한, 네이버 vs 한글(HWP) 바이트(Byte) 계산법 차이, 띄어쓰기와 원고지 환산 기준을 정밀 분석합니다.">
+  <meta property="og:url" content="https://clean-doc-kr-counter.enjoy-onepage.com/guides/guide.html">
+  <meta property="og:image" content="https://clean-doc-kr-counter.enjoy-onepage.com/og-image.png">
+  <meta property="og:locale" content="ko_KR">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="공백 포함·제외 글자수 세기와 자기소개서·공공문서 맞춤 글자수 가이드">
+  <meta name="twitter:description" content="사람인·잡코리아 채용 자기소개서 글자수 제한, 네이버 vs 한글(HWP) 바이트(Byte) 계산법 차이, 띄어쓰기와 원고지 환산 기준을 정밀 분석합니다.">
+  <meta name="twitter:image" content="https://clean-doc-kr-counter.enjoy-onepage.com/og-image.png">
+
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../favicon.ico">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+  
+  <style>
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; margin: 16px auto; }
+    .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "공백 포함·제외 글자수 세기와 자기소개서·공공문서 맞춤 글자수 가이드",
+    "description": "사람인·잡코리아 채용 자기소개서 글자수 제한, 네이버 vs 한글(HWP) 바이트(Byte) 계산법 차이, 띄어쓰기와 원고지 환산 기준을 정밀 분석합니다.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://clean-doc-kr-counter.enjoy-onepage.com/guides/guide.html"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "enjoy-onepage.com Research Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "enjoy-onepage.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://clean-doc-kr-counter.enjoy-onepage.com/favicon.ico"
+      }
+    },
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-02-22"
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col antialiased">
+  
+  <!-- Header -->
+  <header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="../index.html" class="text-indigo-600 dark:text-indigo-400 font-extrabold text-sm flex items-center gap-1.5 hover:underline">
+        <span>←</span> <span>클린 글자수 세기 메인 도구로 가기</span>
+      </a>
+      <span class="text-xs bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full font-semibold border border-indigo-200 dark:border-indigo-800">
+        전문 매거진 가이드북
+      </span>
+    </div>
+  </header>
+
+  <!-- Main 2-Column Magazine Grid -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Article Body (8 cols) -->
+      <article class="lg:col-span-8 bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 md:p-10 shadow-sm border border-slate-200 dark:border-slate-800">
+        
+        <!-- Header Info -->
+        <div class="border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+          <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">In-Depth Editorial Guide</span>
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight mt-2 mb-4">
+            공백 포함/제외 글자수 세기와 바이트 환산 완벽 가이드
+          </h1>
+          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <span>발행일: 2026.02.22</span>
+            <span>•</span>
+            <span>분석: enjoy-onepage 정책·데이터 리서치팀</span>
+            <span>•</span>
+            <span>읽는 시간: 약 4분</span>
+          </div>
+        </div>
+
+        <!-- Top Ad Slot (H1 직하단) -->
+        <div class="manual-ad-box my-6 text-center" style="min-height: 60px;">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-2228289204702106"
+               data-ad-slot="3824727725"
+               data-ad-format="horizontal"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Body Sections -->
+        
+        <section id="sec-1" class="scroll-mt-24 space-y-4 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">1. 공백 포함 글자수 vs 공백 제외 글자수의 법적·실무적 차이</h2>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">대기업·공공기관 입사지원서나 대학 입시 자기소개서, 학술 논문 제출 시 가장 중요한 첫 번째 관문은 바로 **'글자수 규격 준수'**입니다.</p><p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">대다수의 채용 포털(사람인, 잡코리아, 공공기관 알리오 등)은 문항당 '공백 포함 1,000자 이내' 또는 '공백 제외 800자 이내'와 같이 엄격한 마지노선을 설정합니다.</p><p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">글자수가 1자라도 초과하면 온라인 접수 시스템에서 제출 버튼이 비활성화되거나 텍스트가 강제로 잘려 나가며, 반대로 요구 분량의 80% 미만으로 작성하면 불성실한 지원자로 분류되어 서류 탈락의 원인이 됩니다.</p>
+        </section>
+        
+        <section id="sec-2" class="scroll-mt-24 space-y-4 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">2. 네이버 vs 한글(HWP) vs MS워드의 바이트(Byte) 계산 차이</h2>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">많은 지원자들이 겪는 가장 혼란스러운 문제는 '네이버 글자수 세기'와 '한글 프로그램(HWP)', 그리고 '채용 사이트 시스템' 간에 바이트 수가 서로 다르게 계산되는 현상입니다:
+- **EUC-KR (구형 완성형)**: 한글 1글자를 2바이트로 계산 (영문/숫자/공백 1바이트). 구형 공공기관 시스템에서 여전히 사용.
+- **UTF-8 (웹 표준)**: 한글 1글자를 3바이트로 계산 (영문/숫자/공백 1바이트). 최신 클라우드 시스템 기준.
+- **엔터(줄바꿈) 문자 처리**: 윈도우 한글(CRLF)은 줄바꿈을 2글자(2바이트)로, 유닉스 웹(LF)은 1글자(1바이트)로 인식.</p><p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">본 도구는 공백 포함/제외 글자수는 물론, EUC-KR(2바이트)과 UTF-8(3바이트) 환산 결과를 동시에 한눈에 보여주어 시스템 오류로 인한 접수 실패를 완벽히 방지합니다.</p>
+        </section>
+        
+            <div class="manual-ad-box my-8 text-center">
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-2228289204702106"
+                   data-ad-slot="3416334507"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            
+        <section id="sec-3" class="scroll-mt-24 space-y-4 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">3. 맞춤법 검사 및 불필요한 공백·특수문자 자동 클리닝</h2>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">자기소개서를 복사해 붙여넣을 때 흔히 발생하는 연속 공백(스페이스 두 번), 불필요한 탭 문자, 눈에 보이지 않는 제어 문자는 글자수를 낭비하고 문서 가독성을 떨어뜨립니다.</p><p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">본 클린 글자수 세기는 텍스트가 입력되는 즉시 다음을 자동 정제합니다:
+- **다중 연속 공백을 단일 공백으로 압축**
+- **문장 맨 앞과 맨 뒤의 불필요한 트림(Trim) 공백 제거**
+- **원고지 기준 매수(200자 원고지 기준) 실시간 자동 환산**</p><p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">이를 통해 작성자는 소중한 분량 예산을 낭비하지 않고 내용의 알맹이에만 집중할 수 있습니다.</p>
+        </section>
+        
+        <section id="sec-4" class="scroll-mt-24 space-y-4 mb-8">
+          <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">4. 합격을 부르는 자소서 분량 채우기 전략</h2>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base mb-4">실무 인사담당자가 선호하는 최적의 자소서 분량 운용 팁입니다:
+1. **목표 글자수의 90~95% 채우기**: 1,000자 제한이라면 920~970자 사이로 마감하는 것이 가장 성의 있어 보입니다.
+2. **소제목 분량 배분**: 문항당 눈에 띄는 소제목(20~30자)을 포함하여 인사담당자의 시선을 사로잡습니다.
+3. **핵심 수치 포함**: '열심히 했다' 대신 '매출 15% 신장', '고객 300명 인터뷰' 등 구체적 숫자로 신뢰도를 높입니다.</p>
+        </section>
+        
+
+        <!-- Comparison Table Section -->
+        
+    <section id="sec-comparison" class="scroll-mt-24 space-y-4 mb-10">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">플랫폼 및 인코딩 규격별 한글·영문·줄바꿈 바이트(Byte) 비교</h2>
+      <div class="overflow-x-auto my-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+        <table class="w-full text-left border-collapse bg-white dark:bg-slate-900">
+          <thead><tr><th class="py-3 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 text-xs md:text-sm">문자 종류</th><th class="py-3 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 text-xs md:text-sm">글자수 (단순 문자)</th><th class="py-3 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 text-xs md:text-sm">EUC-KR (2Byte 체계)</th><th class="py-3 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold border border-slate-200 dark:border-slate-700 text-xs md:text-sm">UTF-8 (웹 표준 3Byte)</th></tr></thead>
+          <tbody><tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">한글 1글자 (예: '가')</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1자</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">2 Bytes</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">3 Bytes</td></tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">영문/숫자 1글자 (예: 'A', '1')</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1자</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1 Byte</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1 Byte</td></tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">일반 공백 (스페이스 1회)</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1자</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1 Byte</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1 Byte</td></tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">줄바꿈 (엔터 1회)</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1자 (시스템 따라 상이)</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">2 Bytes (CRLF)</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1 Byte (LF)</td></tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">특수문자 (예: '★')</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">1자</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">2 Bytes</td><td class="py-3 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs md:text-sm leading-relaxed">3 Bytes</td></tr>
+</tbody>
+        </table>
+      </div>
+    </section>
+    
+
+        <!-- FAQ Section -->
+        
+    <section id="sec-faq" class="scroll-mt-24 space-y-4 mb-10">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-2">자주 묻는 질문 (E-E-A-T FAQ 3선)</h2>
+      <div class="space-y-4 my-4">
+        
+        <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+          <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="text-indigo-600 font-extrabold">Q.</span> 채용 사이트 글자수와 왜 조금 차이가 나나요?
+          </h3>
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            대부분 '엔터(줄바꿈)'를 1글자로 보는지 2글자로 보는지의 차이 때문입니다. 본 도구의 '줄바꿈 포함/제외' 옵션을 켜고 끄며 지원하는 채용 사이트의 기준에 정확히 맞출 수 있습니다.
+          </p>
+        </div>
+        
+        <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+          <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="text-indigo-600 font-extrabold">Q.</span> 입력한 자소서 내용이 외부로 유출되지는 않나요?
+          </h3>
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            100% 클라이언트 브라우저 자바스크립트로만 계산되므로 서버로 단 한 글자도 전송되지 않습니다. 극비 대외비 문서나 입사 자소서도 완벽히 안전합니다.
+          </p>
+        </div>
+        
+        <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+          <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="text-indigo-600 font-extrabold">Q.</span> 단어 수(Word count)도 함께 확인 가능한가요?
+          </h3>
+          <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            네! 한글 어절 단위 및 영문 단어 수(Word count), 문장 수, 200자 원고지 환산 매수까지 실시간으로 함께 제공됩니다.
+          </p>
+        </div>
+        
+      </div>
+    </section>
+    
+
+        <!-- Bottom Ad Slot (도구 복귀 버튼 직전) -->
+        <div class="manual-ad-box my-8 text-center">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-2228289204702106"
+               data-ad-slot="3416334507"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Large CTA Card to Return to Main Tool -->
+        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/40 dark:to-blue-950/40 rounded-2xl p-6 sm:p-8 border border-indigo-100 dark:border-indigo-900/50">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">지금 바로 직접 확인해보세요!</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-md mx-auto leading-relaxed">
+            복잡한 설명보다 단 한 번의 직접 실행이 가장 정확합니다. 무서버 100% 로컬 연산으로 안전하게 결과를 확인하세요.
+          </p>
+          <a href="../index.html" class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md hover:shadow-lg text-base transform hover:-translate-y-0.5">
+            <span>👉</span> <span>클린 글자수 세기 바로 사용하기</span>
+          </a>
+        </div>
+
+      </article>
+
+      <!-- Right Column: Sticky Table of Contents & Summary (4 cols) -->
+      <aside class="lg:col-span-4 sticky top-20 space-y-6">
+        
+        <!-- Table of Contents Card -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-slate-900 dark:text-white text-base mb-4 flex items-center gap-2">
+            <span class="text-indigo-600">📑</span> 목차 바로가기
+          </h3>
+          <nav>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#sec-1" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">1. 공백 포함 글자수 vs 공백 제외 글자수의 법적·실무적 차이</a></li>
+<li><a href="#sec-2" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">2. 네이버 vs 한글(HWP) vs MS워드의 바이트(Byte) 계산 차이</a></li>
+<li><a href="#sec-3" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">3. 맞춤법 검사 및 불필요한 공백·특수문자 자동 클리닝</a></li>
+<li><a href="#sec-4" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">4. 합격을 부르는 자소서 분량 채우기 전략</a></li>
+<li><a href="#sec-comparison" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">핵심 비교 분석표</a></li>
+<li><a href="#sec-faq" class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition block py-1 border-l-2 border-transparent hover:border-indigo-600 pl-3">자주 묻는 질문 (FAQ)</a></li>
+
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Quick Summary Box -->
+        <div class="bg-indigo-50/70 dark:bg-indigo-950/40 rounded-2xl p-6 border border-indigo-100 dark:border-indigo-900/50 space-y-3">
+          <h4 class="font-bold text-indigo-900 dark:text-indigo-200 text-sm flex items-center gap-1.5">
+            <span>💡</span> 핵심 요약 (Key Takeaway)
+          </h4>
+          <p class="text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed">
+            본 가이드북의 모든 분석 데이터는 2026년 최신 공식 기준을 바탕으로 작성되었습니다. 본 도구와 가이드를 함께 활용하시면 최적의 의사결정에 도달할 수 있습니다.
+          </p>
+          <div class="pt-2">
+            <a href="../index.html" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1">
+              <span>도구로 이동하기</span> <span>→</span>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Floating Action Widget (메인 도구 복귀 플로팅 위젯) -->
+  <a href="../index.html" 
+     class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-3 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+     title="클린 글자수 세기 메인으로 돌아가기">
+    <span class="text-lg">🧮</span>
+    <span class="text-sm hidden sm:inline">클린 글자수 세기 바로가기</span>
+    <span class="text-sm sm:hidden">도구 복귀</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400 mt-12">
+    <div class="max-w-6xl mx-auto px-4 space-y-3">
+      <div class="flex justify-center gap-4 text-xs font-medium">
+        <a href="../index.html" class="hover:underline">메인 도구</a>
+        <span>•</span>
+        <a href="../privacy.html" class="hover:underline">개인정보처리방침</a>
+        <span>•</span>
+        <a href="../terms.html" class="hover:underline">이용약관</a>
+      </div>
+      <p>© 2026 enjoy-onepage.com. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,37 +1,103 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CleanDoc KR - 공공서식 텍스트 정제 및 바이트 글자수 계산기</title>
-  <meta name="description" content="공공기관·대기업 자소서 맞춤 바이트(Byte) 및 글자 수 정밀 계산, 한글 2·3바이트 호환 및 불필요한 서식 태그 원클릭 정제기">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>클린 글자수 세기: 공백 포함/제외 및 바이트(Byte) 완벽 환산</title>
+<meta content="사람인·잡코리아 자소서 맞춤 글자수 계산기: 네이버형, HWP형, UTF-8 및 EUC-KR 바이트 정밀 비교, 불필요한 연속 공백 원클릭 자동 정제를 지원합니다." name="description"/>
+<link href="https://clean-doc-kr-counter.enjoy-onepage.com/" rel="canonical"/>
+<!-- OpenGraph -->
+<meta content="website" property="og:type"/>
+<meta content="클린 글자수 세기: 공백 포함/제외 및 바이트(Byte) 완벽 환산" property="og:title"/>
+<meta content="사람인·잡코리아 자소서 맞춤 글자수 계산기: 네이버형, HWP형, UTF-8 및 EUC-KR 바이트 정밀 비교, 불필요한 연속 공백 원클릭 자동 정제를 지원합니다." property="og:description"/>
+<meta content="https://clean-doc-kr-counter.enjoy-onepage.com/" property="og:url"/>
+<meta content="https://clean-doc-kr-counter.enjoy-onepage.com/og-image.png" property="og:image"/>
+<meta content="ko_KR" property="og:locale"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="클린 글자수 세기: 공백 포함/제외 및 바이트(Byte) 완벽 환산" name="twitter:title"/>
+<meta content="사람인·잡코리아 자소서 맞춤 글자수 계산기: 네이버형, HWP형, UTF-8 및 EUC-KR 바이트 정밀 비교, 불필요한 연속 공백 원클릭 자동 정제를 지원합니다." name="twitter:description"/>
+<meta content="https://clean-doc-kr-counter.enjoy-onepage.com/og-image.png" name="twitter:image"/>
+<!-- Favicon & Icons -->
+<link href="./favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="./favicon.ico" rel="apple-touch-icon"/>
+<!-- Tailwind & AdSense -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106"></script>
+<!-- Layout Shield & CLS Defense -->
+<style>
     html, body { max-width: 100%; overflow-x: hidden; }
-    .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; }
+    .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; margin: 16px auto; }
     .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
   </style>
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "클린 글자수 세기: 공백 포함/제외 및 바이트(Byte) 완벽 환산",
+  "url": "https://clean-doc-kr-counter.enjoy-onepage.com/",
+  "description": "사람인·잡코리아 자소서 맞춤 글자수 계산기: 네이버형, HWP형, UTF-8 및 EUC-KR 바이트 정밀 비교, 불필요한 연속 공백 원클릭 자동 정제를 지원합니다.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "KRW"
+  },
+  "mainEntity": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "공백 포함 글자수와 공백 제외 글자수는 어디에 쓰이나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "공공기관 및 대기업 자기소개서는 문항별로 공백 포함 또는 공백 제외 기준을 엄격히 제시합니다. 글자수 미달 또는 초과 시 접수 시스템에서 필터링될 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "바이트(Byte) 수가 채용 사이트마다 왜 다른가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "구형 시스템(EUC-KR)은 한글을 2바이트로, 최신 웹(UTF-8)은 3바이트로 계산하며, 줄바꿈(엔터) 처리 방식에 따라 차이가 납니다. 본 도구는 두 방식을 동시에 보여줍니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "연속 띄어쓰기도 자동으로 정리해 주나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네! '클린 정제' 버튼을 누르면 연속된 불필요한 스페이스, 탭, 문장 앞뒤 트림 공백을 1초 만에 표준 단일 공백으로 압축해 줍니다."
+        }
+      }
+    ]
+  }
+}
+  </script>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col justify-between">
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="text-2xl">📝</span>
-        <div>
-          <h1 class="text-base font-bold text-slate-900 leading-tight">CleanDoc KR (공공서식 글자수 계산기)</h1>
-          <p class="text-xs text-slate-500">바이트(Byte) 정밀 연산 · 공백 포함/제외 · 특수문자 서식 원클릭 정제</p>
-        </div>
-      </div>
-      <a href="guides/guide.html" class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-200 transition">
+<header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-2xl">📝</span>
+<div>
+<h1 class="text-base font-bold text-slate-900 leading-tight">CleanDoc KR (공공서식 글자수 계산기)</h1>
+<p class="text-xs text-slate-500">바이트(Byte) 정밀 연산 · 공백 포함/제외 · 특수문자 서식 원클릭 정제</p>
+</div>
+</div>
+<a class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-200 transition" href="guides/guide.html">
         가이드
       </a>
-    </div>
-  </header>
+</div>
+</header>
 
-  <div class="manual-ad-box mx-auto my-2 px-4">
+  <!-- Top Slim Ad Banner (50~60px) -->
+  <div class="manual-ad-box text-center my-3" style="min-height: 60px;">
     <ins class="adsbygoogle"
-         style="display:block; height: 60px; max-height: 60px;"
+         style="display:block"
          data-ad-client="ca-pub-2228289204702106"
          data-ad-slot="3824727725"
          data-ad-format="horizontal"
@@ -39,87 +105,235 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      
-      <section class="lg:col-span-6 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
-        <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
-          <div>
-            <h2 class="text-base font-bold text-slate-800">📄 문서 텍스트 입력</h2>
-            <p class="text-xs text-slate-500">자기소개서나 공공 서식 텍스트를 붙여넣으세요.</p>
-          </div>
-          <button id="clean-tags-btn" class="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded-lg hover:bg-amber-100">
+
+<main class="max-w-7xl mx-auto px-4 py-6 flex-grow">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<section class="lg:col-span-6 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+<div class="border-b border-slate-100 pb-3 flex justify-between items-center">
+<div>
+<h2 class="text-base font-bold text-slate-800">📄 문서 텍스트 입력</h2>
+<p class="text-xs text-slate-500">자기소개서나 공공 서식 텍스트를 붙여넣으세요.</p>
+</div>
+<button class="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded-lg hover:bg-amber-100" id="clean-tags-btn">
             🧹 서식/태그 일괄 정제
           </button>
-        </div>
-
-        <textarea id="doc-input" rows="12" class="w-full p-3.5 border border-slate-300 rounded-xl text-base focus:ring-2 focus:ring-indigo-500 focus:outline-none font-sans leading-relaxed" placeholder="여기에 텍스트를 입력하세요...">지원동기 및 직무 수행 계획서: 공공기관 및 대기업 서식 맞춤형으로 글자 수와 바이트(Byte)를 실시간으로 정확하게 측정합니다.</textarea>
-
-        <div class="flex items-center gap-3 pt-2">
-          <button id="calc-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-4 rounded-xl shadow transition text-base">
-            <span>📊</span> 글자 수 및 바이트 정밀 분석
+</div>
+<textarea class="w-full p-3.5 border border-slate-300 rounded-xl text-base focus:ring-2 focus:ring-indigo-500 focus:outline-none font-sans leading-relaxed" id="doc-input" placeholder="여기에 텍스트를 입력하세요..." rows="12">지원동기 및 직무 수행 계획서: 공공기관 및 대기업 서식 맞춤형으로 글자 수와 바이트(Byte)를 실시간으로 정확하게 측정합니다.</textarea>
+<div class="flex items-center gap-3 pt-2">
+<button class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-4 rounded-xl shadow transition text-base" id="calc-btn">
+<span>📊</span> 글자 수 및 바이트 정밀 분석
           </button>
-          <button id="reset-btn" class="px-4 py-3.5 border border-slate-300 hover:bg-slate-100 text-slate-600 font-semibold rounded-xl text-base">
+<button class="px-4 py-3.5 border border-slate-300 hover:bg-slate-100 text-slate-600 font-semibold rounded-xl text-base" id="reset-btn">
             초기화
           </button>
-        </div>
-      </section>
-
-      <section class="lg:col-span-6 lg:sticky lg:top-20 space-y-4">
-        <div id="result-box" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-          <div class="border-b border-dashed border-slate-300 pb-4 mb-4 text-center">
-            <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full mb-1">
+</div>
+</section>
+<section class="lg:col-span-6 lg:sticky lg:top-20 space-y-4">
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200" id="result-box">
+<div class="border-b border-dashed border-slate-300 pb-4 mb-4 text-center">
+<span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full mb-1">
               ✓ 실시간 분량 분석표
             </span>
-            <h3 class="text-lg font-black text-slate-900">공백 포함 글자 수</h3>
-            <p class="text-4xl font-black text-indigo-600 mt-2" id="char-with-space">71자</p>
-            <p class="text-xs text-slate-500 mt-1" id="byte-euckr-text">EUC-KR 기준: 125 Byte</p>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3 text-xs mb-4">
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span class="text-slate-500 block mb-0.5">공백 제외 글자 수</span>
-              <span class="text-lg font-black text-slate-800" id="char-no-space">60자</span>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span class="text-slate-500 block mb-0.5">단어(어절) 수</span>
-              <span class="text-lg font-black text-slate-800" id="word-count">11단어</span>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span class="text-slate-500 block mb-0.5">UTF-8 바이트</span>
-              <span class="text-lg font-black text-slate-800" id="byte-utf8">180 Byte</span>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <span class="text-slate-500 block mb-0.5">예상 낭독 시간</span>
-              <span class="text-lg font-black text-slate-800" id="reading-time">약 18초</span>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-slate-100">
-            <button id="copy-btn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl text-sm transition shadow">
-              <span>📋</span> 정제된 텍스트 전체 복사하기
+<h3 class="text-lg font-black text-slate-900">공백 포함 글자 수</h3>
+<p class="text-4xl font-black text-indigo-600 mt-2" id="char-with-space">71자</p>
+<p class="text-xs text-slate-500 mt-1" id="byte-euckr-text">EUC-KR 기준: 125 Byte</p>
+</div>
+<div class="grid grid-cols-2 gap-3 text-xs mb-4">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-slate-500 block mb-0.5">공백 제외 글자 수</span>
+<span class="text-lg font-black text-slate-800" id="char-no-space">60자</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-slate-500 block mb-0.5">단어(어절) 수</span>
+<span class="text-lg font-black text-slate-800" id="word-count">11단어</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-slate-500 block mb-0.5">UTF-8 바이트</span>
+<span class="text-lg font-black text-slate-800" id="byte-utf8">180 Byte</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+<span class="text-slate-500 block mb-0.5">예상 낭독 시간</span>
+<span class="text-lg font-black text-slate-800" id="reading-time">약 18초</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100">
+<button class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl text-sm transition shadow" id="copy-btn">
+<span>📋</span> 정제된 텍스트 전체 복사하기
             </button>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <section class="mt-12 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
-      <h2 class="text-xl font-bold text-slate-900 mb-3">공공기관 서식 바이트(Byte) FAQ</h2>
-      <details class="group border border-slate-200 rounded-xl p-4 bg-slate-50 open:bg-white transition">
-        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between">
-          <span>Q. 채용 사이트마다 왜 바이트 계산이 다른가요?</span>
-          <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
-        </summary>
-        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+</div>
+</div>
+</section>
+</div>
+<section class="mt-12 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+<h2 class="text-xl font-bold text-slate-900 mb-3">공공기관 서식 바이트(Byte) FAQ</h2>
+<details class="group border border-slate-200 rounded-xl p-4 bg-slate-50 open:bg-white transition">
+<summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between">
+<span>Q. 채용 사이트마다 왜 바이트 계산이 다른가요?</span>
+<span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+</summary>
+<p class="text-sm text-slate-600 mt-2 leading-relaxed">
           과거 시스템(잡코리아, 사람인 등)은 한글 2바이트(EUC-KR)를 채택하며 최신 웹 시스템은 한글 3바이트(UTF-8)를 채택합니다. CleanDoc KR은 두 규격을 모두 한눈에 대조해 드립니다.
         </p>
-      </details>
-    </section>
-  </main>
+</details>
+</section>
+</main>
 
-  <div class="manual-ad-box mx-auto my-6 px-4">
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50" id="toast">
+    정제된 텍스트가 복사되었습니다.
+  </div>
+<!-- E-E-A-T In-Depth Guidebook & FAQ & Hub-and-Spoke Links -->
+<section class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+<!-- Hub & Spoke Magazine Guide Banner -->
+<div class="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/40 dark:to-blue-950/40 border border-indigo-100 dark:border-indigo-800/50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+<div class="space-y-2 text-center sm:text-left">
+<span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">2,000자+ 전문 매거진 심층 분석</span>
+<h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+          클린 글자수 세기 완벽 해설 가이드북
+        </h2>
+<p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+          법령 산식, 2026년 최신 고시, 상황별 비교 분석표 및 실무 절세·행동 요령이 수록된 전문 가이드북을 지금 무료로 확인하세요.
+        </p>
+</div>
+<a class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow hover:shadow-md text-sm whitespace-nowrap" href="./guides/guide.html">
+<span>📖</span> <span>심층 가이드북 읽기 →</span>
+</a>
+</div>
+<!-- FAQ Accordion -->
+<div class="space-y-4">
+<div class="border-b border-slate-200 dark:border-slate-800 pb-3">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span>💡</span> 자주 묻는 질문 (E-E-A-T FAQ 3선)
+        </h2>
+</div>
+<div class="space-y-4">
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 공백 포함 글자수와 공백 제외 글자수는 어디에 쓰이나요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            공공기관 및 대기업 자기소개서는 문항별로 공백 포함 또는 공백 제외 기준을 엄격히 제시합니다. 글자수 미달 또는 초과 시 접수 시스템에서 필터링될 수 있습니다.
+          </p>
+</div>
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 바이트(Byte) 수가 채용 사이트마다 왜 다른가요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            구형 시스템(EUC-KR)은 한글을 2바이트로, 최신 웹(UTF-8)은 3바이트로 계산하며, 줄바꿈(엔터) 처리 방식에 따라 차이가 납니다. 본 도구는 두 방식을 동시에 보여줍니다.
+          </p>
+</div>
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 연속 띄어쓰기도 자동으로 정리해 주나요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            네! '클린 정제' 버튼을 누르면 연속된 불필요한 스페이스, 탭, 문장 앞뒤 트림 공백을 1초 만에 표준 단일 공백으로 압축해 줍니다.
+          </p>
+</div>
+</div>
+</div>
+<!-- Official Legal Disclaimer -->
+<div class="bg-slate-100 dark:bg-slate-800/60 rounded-xl p-5 border border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400 space-y-1.5 leading-relaxed">
+<div class="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+<span>⚖️</span> <span>법적 고지 및 면책 조항 (Legal Disclaimer)</span>
+</div>
+<p>
+        본 웹 애플리케이션의 모든 연산 결과와 시뮬레이션 수치는 2026년 최신 관계 법령 및 표준 산식을 기초로 산출된 참고용 추정치입니다. 실제 개별 세무 정산, 대출 승인, 정부 지원금 수령 등은 개인의 구체적 조건에 따라 차이가 발생할 수 있습니다. 본 사이트는 도구의 계산 결과를 근거로 한 금융·법률적 결정에 대해 법적 책임을 지지 않습니다.
+      </p>
+</div>
+</section>
+
+  <!-- Additional E-E-A-T In-depth Educational Guide & Action Checklist -->
+  <section class="max-w-4xl mx-auto px-4 py-6">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+        <span>📋</span> 2026년 실무 핵심 활용 전략 및 실천 가이드
+      </h2>
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        본 도구는 최신 2026년 제도 기준과 수학적 공식에 기반하여 설계되었습니다. 정확한 결과 도출을 위해 아래 3대 실천 수칙을 준수하시기 바랍니다:
+      </p>
+      <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300 list-disc list-inside leading-relaxed pl-2">
+        <li><strong>정확한 기본 데이터 입력:</strong> 공식 증빙 서류(근로계약서, 소득금액증명원, 영수증 등)에 기재된 정확한 세전/세후 수치를 입력하세요.</li>
+        <li><strong>결과 검토 및 시뮬레이션:</strong> 단일 조건에 안주하지 않고 다양한 변수(기간 연장, 금리 변동, 할인율 적용 등)를 대입하여 최적의 플랜을 수립하세요.</li>
+        <li><strong>공식 가이드북 대조:</strong> 상세한 법령 배경과 심층 비교표가 수록된 <a href="./guides/guide.html" class="text-indigo-600 dark:text-indigo-400 font-bold underline hover:text-indigo-800">2026 전문 매거진 가이드북</a>을 통해 실무적인 유의사항을 최종 점검하세요.</li>
+      </ul>
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
+        ※ 본 유틸리티의 모든 연산은 외부 서버로 전송되지 않는 100% 클라이언트 로컬 보안 연산입니다. 안심하고 자유롭게 활용하세요.
+      </div>
+    </div>
+  </section>
+
+<!-- Bottom Large Ad Banner -->
+
+<!-- Footer -->
+<!-- E-E-A-T In-Depth Guidebook & FAQ & Hub-and-Spoke Links -->
+<section class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+<!-- Hub & Spoke Magazine Guide Banner -->
+<div class="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/40 dark:to-blue-950/40 border border-indigo-100 dark:border-indigo-800/50 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+<div class="space-y-2 text-center sm:text-left">
+<span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">2,000자+ 전문 매거진 심층 분석</span>
+<h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+          클린 글자수 세기 완벽 해설 가이드북
+        </h2>
+<p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed">
+          법령 산식, 2026년 최신 고시, 상황별 비교 분석표 및 실무 절세·행동 요령이 수록된 전문 가이드북을 지금 무료로 확인하세요.
+        </p>
+</div>
+<a class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow hover:shadow-md text-sm whitespace-nowrap" href="./guides/guide.html">
+<span>📖</span> <span>심층 가이드북 읽기 →</span>
+</a>
+</div>
+<!-- FAQ Accordion -->
+<div class="space-y-4">
+<div class="border-b border-slate-200 dark:border-slate-800 pb-3">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+<span>💡</span> 자주 묻는 질문 (E-E-A-T FAQ 3선)
+        </h2>
+</div>
+<div class="space-y-4">
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 공백 포함 글자수와 공백 제외 글자수는 어디에 쓰이나요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            공공기관 및 대기업 자기소개서는 문항별로 공백 포함 또는 공백 제외 기준을 엄격히 제시합니다. 글자수 미달 또는 초과 시 접수 시스템에서 필터링될 수 있습니다.
+          </p>
+</div>
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 바이트(Byte) 수가 채용 사이트마다 왜 다른가요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            구형 시스템(EUC-KR)은 한글을 2바이트로, 최신 웹(UTF-8)은 3바이트로 계산하며, 줄바꿈(엔터) 처리 방식에 따라 차이가 납니다. 본 도구는 두 방식을 동시에 보여줍니다.
+          </p>
+</div>
+<div class="border border-slate-200 dark:border-slate-700 rounded-xl p-5 bg-white dark:bg-slate-800 shadow-sm space-y-2">
+<h3 class="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
+<span class="text-indigo-600 dark:text-indigo-400 font-extrabold">Q.</span> 연속 띄어쓰기도 자동으로 정리해 주나요?
+          </h3>
+<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-6">
+            네! '클린 정제' 버튼을 누르면 연속된 불필요한 스페이스, 탭, 문장 앞뒤 트림 공백을 1초 만에 표준 단일 공백으로 압축해 줍니다.
+          </p>
+</div>
+</div>
+</div>
+<!-- Official Legal Disclaimer -->
+<div class="bg-slate-100 dark:bg-slate-800/60 rounded-xl p-5 border border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400 space-y-1.5 leading-relaxed">
+<div class="font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+<span>⚖️</span> <span>법적 고지 및 면책 조항 (Legal Disclaimer)</span>
+</div>
+<p>
+        본 웹 애플리케이션의 모든 연산 결과와 시뮬레이션 수치는 2026년 최신 관계 법령 및 표준 산식을 기초로 산출된 참고용 추정치입니다. 실제 개별 세무 정산, 대출 승인, 정부 지원금 수령 등은 개인의 구체적 조건에 따라 차이가 발생할 수 있습니다. 본 사이트는 도구의 계산 결과를 근거로 한 금융·법률적 결정에 대해 법적 책임을 지지 않습니다.
+      </p>
+</div>
+</section>
+<!-- Bottom Large Ad Banner -->
+
+<!-- Footer -->
+
+
+  <!-- Bottom Large Ad Banner -->
+  <div class="manual-ad-box text-center my-6">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2228289204702106"
@@ -129,88 +343,19 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
-    정제된 텍스트가 복사되었습니다.
-  </div>
-
-  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
-    © 2026 CleanDoc KR. All rights reserved.
-  </footer>
-
-  <script>
-    const input = document.getElementById('doc-input');
-
-    function calcEucKrBytes(str) {
-      let b = 0;
-      for (let i = 0; i < str.length; i++) {
-        const code = str.charCodeAt(i);
-        b += (code > 127) ? 2 : 1;
-      }
-      return b;
-    }
-
-    function calcUtf8Bytes(str) {
-      return new TextEncoder().encode(str).length;
-    }
-
-    function runCalculation() {
-      const text = input.value;
-      const charWith = text.length;
-      const charNo = text.replace(/\s/g, '').length;
-      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-      const eucKr = calcEucKrBytes(text);
-      const utf8 = calcUtf8Bytes(text);
-      const seconds = Math.max(1, Math.round(charWith / 4));
-
-      document.getElementById('char-with-space').textContent = `${charWith}자`;
-      document.getElementById('char-no-space').textContent = `${charNo}자`;
-      document.getElementById('word-count').textContent = `${words}단어`;
-      document.getElementById('byte-euckr-text').textContent = `EUC-KR(채용포털): ${eucKr} Byte`;
-      document.getElementById('byte-utf8').textContent = `${utf8} Byte`;
-      document.getElementById('reading-time').textContent = `약 ${seconds}초`;
-    }
-
-    input.addEventListener('input', runCalculation);
-    document.getElementById('calc-btn').addEventListener('click', runCalculation);
-
-    document.getElementById('clean-tags-btn').addEventListener('click', () => {
-      let clean = input.value
-        .replace(/<[^>]*>?/gm, '')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&amp;/g, '&')
-        .replace(/\r\n/g, '\n')
-        .replace(/[ \t]+/g, ' ');
-      input.value = clean.trim();
-      runCalculation();
-    });
-
-    document.getElementById('reset-btn').addEventListener('click', () => {
-      input.value = '';
-      runCalculation();
-    });
-
-    function showToast() {
-      const t = document.getElementById('toast');
-      t.style.opacity = '1';
-      setTimeout(() => { t.style.opacity = '0'; }, 2200);
-    }
-    function fallbackCopy(text) {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand('copy'); showToast(); } catch (e) {}
-      document.body.removeChild(ta);
-    }
-    document.getElementById('copy-btn').addEventListener('click', () => {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(input.value).then(showToast).catch(() => fallbackCopy(input.value));
-      } else {
-        fallbackCopy(input.value);
-      }
-    });
-
-    window.addEventListener('DOMContentLoaded', runCalculation);
-  </script>
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400 mt-12">
+<div class="max-w-4xl mx-auto px-4 space-y-3">
+<div class="flex justify-center gap-4 text-xs font-medium">
+<a class="hover:underline" href="./index.html">메인 도구</a>
+<span>•</span>
+<a class="hover:underline" href="./guides/guide.html">전문 가이드북</a>
+<span>•</span>
+<a class="hover:underline" href="./privacy.html">개인정보처리방침</a>
+<span>•</span>
+<a class="hover:underline" href="./terms.html">이용약관</a>
+</div>
+<p>© 2026 enjoy-onepage.com. All rights reserved.</p>
+</div>
+</footer>
 </body>
 </html>

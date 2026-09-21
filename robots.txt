@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://clean-doc-kr-counter.enjoy-onepage.com/sitemap.xml
