@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanDoc KR - 공공서식 텍스트 정제 및 바이트 글자수 계산기</title>
+  <meta name="description" content="공공기관·대기업 자소서 맞춤 바이트(Byte) 및 글자 수 정밀 계산, 한글 2·3바이트 호환 및 불필요한 서식 태그 원클릭 정제기">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+  <style>
+    html, body { max-width: 100%; overflow-x: hidden; }
+    .manual-ad-box { width: 100%; max-width: 960px; overflow: hidden; }
+    .manual-ad-box ins { max-width: 100% !important; overflow: hidden !important; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col justify-between">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">📝</span>
+        <div>
+          <h1 class="text-base font-bold text-slate-900 leading-tight">CleanDoc KR (공공서식 글자수 계산기)</h1>
+          <p class="text-xs text-slate-500">바이트(Byte) 정밀 연산 · 공백 포함/제외 · 특수문자 서식 원클릭 정제</p>
+        </div>
+      </div>
+      <a href="guides/guide.html" class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-200 transition">
+        가이드
+      </a>
+    </div>
+  </header>
+
+  <div class="manual-ad-box mx-auto my-2 px-4">
+    <ins class="adsbygoogle"
+         style="display:block; height: 60px; max-height: 60px;"
+         data-ad-client="ca-pub-2228289204702106"
+         data-ad-slot="3824727725"
+         data-ad-format="horizontal"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <section class="lg:col-span-6 bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
+          <div>
+            <h2 class="text-base font-bold text-slate-800">📄 문서 텍스트 입력</h2>
+            <p class="text-xs text-slate-500">자기소개서나 공공 서식 텍스트를 붙여넣으세요.</p>
+          </div>
+          <button id="clean-tags-btn" class="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded-lg hover:bg-amber-100">
+            🧹 서식/태그 일괄 정제
+          </button>
+        </div>
+
+        <textarea id="doc-input" rows="12" class="w-full p-3.5 border border-slate-300 rounded-xl text-base focus:ring-2 focus:ring-indigo-500 focus:outline-none font-sans leading-relaxed" placeholder="여기에 텍스트를 입력하세요...">지원동기 및 직무 수행 계획서: 공공기관 및 대기업 서식 맞춤형으로 글자 수와 바이트(Byte)를 실시간으로 정확하게 측정합니다.</textarea>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button id="calc-btn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-4 rounded-xl shadow transition text-base">
+            <span>📊</span> 글자 수 및 바이트 정밀 분석
+          </button>
+          <button id="reset-btn" class="px-4 py-3.5 border border-slate-300 hover:bg-slate-100 text-slate-600 font-semibold rounded-xl text-base">
+            초기화
+          </button>
+        </div>
+      </section>
+
+      <section class="lg:col-span-6 lg:sticky lg:top-20 space-y-4">
+        <div id="result-box" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+          <div class="border-b border-dashed border-slate-300 pb-4 mb-4 text-center">
+            <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full mb-1">
+              ✓ 실시간 분량 분석표
+            </span>
+            <h3 class="text-lg font-black text-slate-900">공백 포함 글자 수</h3>
+            <p class="text-4xl font-black text-indigo-600 mt-2" id="char-with-space">71자</p>
+            <p class="text-xs text-slate-500 mt-1" id="byte-euckr-text">EUC-KR 기준: 125 Byte</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500 block mb-0.5">공백 제외 글자 수</span>
+              <span class="text-lg font-black text-slate-800" id="char-no-space">60자</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500 block mb-0.5">단어(어절) 수</span>
+              <span class="text-lg font-black text-slate-800" id="word-count">11단어</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500 block mb-0.5">UTF-8 바이트</span>
+              <span class="text-lg font-black text-slate-800" id="byte-utf8">180 Byte</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-slate-500 block mb-0.5">예상 낭독 시간</span>
+              <span class="text-lg font-black text-slate-800" id="reading-time">약 18초</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-100">
+            <button id="copy-btn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl text-sm transition shadow">
+              <span>📋</span> 정제된 텍스트 전체 복사하기
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="mt-12 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+      <h2 class="text-xl font-bold text-slate-900 mb-3">공공기관 서식 바이트(Byte) FAQ</h2>
+      <details class="group border border-slate-200 rounded-xl p-4 bg-slate-50 open:bg-white transition">
+        <summary class="font-semibold text-slate-800 cursor-pointer list-none flex justify-between">
+          <span>Q. 채용 사이트마다 왜 바이트 계산이 다른가요?</span>
+          <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+        </summary>
+        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+          과거 시스템(잡코리아, 사람인 등)은 한글 2바이트(EUC-KR)를 채택하며 최신 웹 시스템은 한글 3바이트(UTF-8)를 채택합니다. CleanDoc KR은 두 규격을 모두 한눈에 대조해 드립니다.
+        </p>
+      </details>
+    </section>
+  </main>
+
+  <div class="manual-ad-box mx-auto my-6 px-4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2228289204702106"
+         data-ad-slot="3416334507"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-sm px-5 py-2.5 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none z-50">
+    정제된 텍스트가 복사되었습니다.
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-400">
+    © 2026 CleanDoc KR. All rights reserved.
+  </footer>
+
+  <script>
+    const input = document.getElementById('doc-input');
+
+    function calcEucKrBytes(str) {
+      let b = 0;
+      for (let i = 0; i < str.length; i++) {
+        const code = str.charCodeAt(i);
+        b += (code > 127) ? 2 : 1;
+      }
+      return b;
+    }
+
+    function calcUtf8Bytes(str) {
+      return new TextEncoder().encode(str).length;
+    }
+
+    function runCalculation() {
+      const text = input.value;
+      const charWith = text.length;
+      const charNo = text.replace(/\s/g, '').length;
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      const eucKr = calcEucKrBytes(text);
+      const utf8 = calcUtf8Bytes(text);
+      const seconds = Math.max(1, Math.round(charWith / 4));
+
+      document.getElementById('char-with-space').textContent = `${charWith}자`;
+      document.getElementById('char-no-space').textContent = `${charNo}자`;
+      document.getElementById('word-count').textContent = `${words}단어`;
+      document.getElementById('byte-euckr-text').textContent = `EUC-KR(채용포털): ${eucKr} Byte`;
+      document.getElementById('byte-utf8').textContent = `${utf8} Byte`;
+      document.getElementById('reading-time').textContent = `약 ${seconds}초`;
+    }
+
+    input.addEventListener('input', runCalculation);
+    document.getElementById('calc-btn').addEventListener('click', runCalculation);
+
+    document.getElementById('clean-tags-btn').addEventListener('click', () => {
+      let clean = input.value
+        .replace(/<[^>]*>?/gm, '')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/\r\n/g, '\n')
+        .replace(/[ \t]+/g, ' ');
+      input.value = clean.trim();
+      runCalculation();
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      input.value = '';
+      runCalculation();
+    });
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.style.opacity = '1';
+      setTimeout(() => { t.style.opacity = '0'; }, 2200);
+    }
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); showToast(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(input.value).then(showToast).catch(() => fallbackCopy(input.value));
+      } else {
+        fallbackCopy(input.value);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', runCalculation);
+  </script>
+</body>
+</html>
